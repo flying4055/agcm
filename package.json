@@ -1,0 +1,87 @@
+{
+    "name": "agcm",
+    "displayName": "AGCM",
+    "description": "智能Git提交信息生成器/Intelligent Git Commit Message Generator",
+    "version": "1.0.3",
+    "publisher": "Leon4055",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/flying4055/agcm.git"
+    },
+    "engines": {
+        "vscode": "^1.80.0"
+    },
+    "categories": [
+        "AI"
+    ],
+    "icon": "./src/images/logo.png",
+    "pricing": "Free",
+    "keywords": [
+        "git",
+        "commit",
+        "AI",
+        "DeepSeek",
+        "automation"
+    ],
+    "main": "./out/extension.js",
+    "activationEvents": [
+        "onView:workbench.scm"
+    ],
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.80.0",
+        "typescript": "^5.1.3",
+        "eslint": "^8.46.0",
+        "vscode-test": "^1.6.1",
+        "@vscode/vsce": "^2.16.0"
+    },
+    "contributes": {
+        "configuration": {
+            "title": "AGCM",
+            "properties": {
+                "agcm.apiKey": {
+                    "type": "string",
+                    "default": "",
+                    "description": "DeepSeek平台API Key"
+                },
+                "agcm.language": {
+                    "type": "string",
+                    "enum": [
+                        "en",
+                        "zh-CN"
+                    ],
+                    "default": "zh-CN",
+                    "description": "界面语言/Interface language"
+                },
+                "agcm.commitStyle": {
+                    "type": "string",
+                    "enum": [
+                        "conventional",
+                        "simple"
+                    ],
+                    "default": "conventional",
+                    "description": "提交风格样式/Commit style"
+                }
+            }
+        },
+        "commands": [
+            {
+                "command": "agcm.generateCommitMessage",
+                "title": "生成智能提交信息/Generate Smart Commit Message",
+                "icon": "${sparkle}"
+            }
+        ],
+        "menus": {
+            "scm/title": [
+                {
+                    "when": "scmProvider == git",
+                    "command": "agcm.generateCommitMessage",
+                    "group": "navigation"
+                }
+            ]
+        }
+    }
+}
