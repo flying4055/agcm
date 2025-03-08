@@ -3,7 +3,7 @@
     "displayName": "AGCM",
     "description": "智能Git提交信息生成器/Intelligent Git Commit Message Generator",
     "version": "1.0.3",
-    "publisher": "Leon4055",
+    "publisher": "code-leon4055",
     "repository": {
         "type": "git",
         "url": "https://github.com/flying4055/agcm.git"
