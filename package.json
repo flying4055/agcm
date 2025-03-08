@@ -71,7 +71,7 @@
             {
                 "command": "agcm.generateCommitMessage",
                 "title": "生成智能提交信息/Generate Smart Commit Message",
-                "icon": "${sparkle}"
+                "icon": "./src/images/logo.png"
             }
         ],
         "menus": {
